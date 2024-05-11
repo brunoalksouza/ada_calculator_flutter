@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class MyCustomInput extends StatelessWidget {
   final String labelText;
   final double size;
+  Icon icon;
 
-  const MyCustomInput({Key? key, required this.labelText, required this.size})
-      : super(key: key);
+  MyCustomInput(
+      {super.key,
+      required this.labelText,
+      required this.size,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +19,7 @@ class MyCustomInput extends StatelessWidget {
         child: TextFormField(
           decoration: InputDecoration(
               labelText: labelText,
-              prefixIcon: const Icon(Icons.book_rounded),
+              prefixIcon: icon,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
