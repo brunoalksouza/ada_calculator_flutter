@@ -1,5 +1,7 @@
 import 'package:afa_calculator_flutter/home.dart';
+import 'package:afa_calculator_flutter/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:afa_calculator_flutter/utils/constants.dart';
 
 void main() {
   runApp(const MainApp());
@@ -11,9 +13,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: mainColor),
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color(0xFF008BCA),
+          backgroundColor: mainColor,
           title: const Center(
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
