@@ -139,36 +139,33 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Expanded(
-                                  child: ConstrainedBox(
-                                    constraints: const BoxConstraints(
-                                      maxWidth: 200.0,
+                                child: ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 200.0,
+                                  ),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.grey),
+                                      borderRadius: BorderRadius.circular(5.0),
                                     ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.grey),
-                                        borderRadius:
-                                            BorderRadius.circular(5.0),
-                                      ),
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Center(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            const SizedBox(
-                                              width: 8.0,
-                                            ), // Espaço entre o ícone e o texto
-                                            Text(
-                                              totalGrade.text,
-                                              style: const TextStyle(
-                                                fontSize: 20,
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Center(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const SizedBox(
+                                            width: 8.0,
+                                          ), // Espaço entre o ícone e o texto
+                                          Text(
+                                            totalGrade.text,
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
