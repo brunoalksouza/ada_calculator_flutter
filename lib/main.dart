@@ -1,7 +1,7 @@
-import 'package:afa_calculator_flutter/utils/widgets/custom_switch.dart';
+import 'package:afa_eear_calculator_flutter/utils/widgets/custom_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:afa_calculator_flutter/home.dart';
-import 'package:afa_calculator_flutter/utils/constants.dart';
+import 'package:afa_eear_calculator_flutter/home.dart';
+import 'package:afa_eear_calculator_flutter/utils/constants.dart';
 
 void main() {
   runApp(const MainApp());

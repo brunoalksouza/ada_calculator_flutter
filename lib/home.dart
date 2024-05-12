@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:afa_calculator_flutter/utils/functions/calculates_grade.dart';
-import 'package:afa_calculator_flutter/utils/widgets/my_custom_input.dart';
-import 'package:afa_calculator_flutter/utils/constants.dart';
+import 'package:afa_eear_calculator_flutter/utils/functions/calculates_grade.dart';
+import 'package:afa_eear_calculator_flutter/utils/widgets/my_custom_input.dart';
+import 'package:afa_eear_calculator_flutter/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   final bool isAFA;

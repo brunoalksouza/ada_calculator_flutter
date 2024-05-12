@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:afa_calculator_flutter/utils/constants.dart';
+import 'package:afa_eear_calculator_flutter/utils/constants.dart';
 import 'package:flutter/services.dart';
 
 class MyCustomInput extends StatelessWidget {

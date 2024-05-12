@@ -10,5 +10,6 @@ double calculateGrade(matematica, portugues, ingles, fisica, isAFA) {
           fisica * weigth) /
       10;
 
+  finalGrade = double.parse(finalGrade.toStringAsFixed(2));
   return finalGrade;
 }
