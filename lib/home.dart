@@ -4,7 +4,9 @@ import 'package:afa_calculator_flutter/utils/widgets/my_custom_input.dart';
 import 'package:afa_calculator_flutter/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final bool isAFA;
+
+  HomePage({Key? key, required this.isAFA}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -15,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController matematicaController = TextEditingController();
   final TextEditingController inglesController = TextEditingController();
   final TextEditingController fisicaController = TextEditingController();
-  final TextEditingController totalGrade = TextEditingController();
+  final TextEditingController totalGrade = TextEditingController(text: '0.0');
 
   @override
   void dispose() {
@@ -23,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     matematicaController.dispose();
     inglesController.dispose();
     fisicaController.dispose();
-    totalGrade.dispose();
     super.dispose();
   }
 
@@ -136,25 +137,41 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             children: [
-                              TextFormField(
-                                enabled: false,
-                                controller: totalGrade,
-                                decoration: InputDecoration(
-                                  labelText: 'Total',
-                                  labelStyle: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight:
-                                          FontWeight.bold), // Texto em negrito
-                                  prefixIcon: const Icon(
-                                    Icons.calculate_outlined,
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Expanded(
+                                  child: ConstrainedBox(
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 200.0,
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: Colors.grey),
+                                        borderRadius:
+                                            BorderRadius.circular(5.0),
+                                      ),
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            const SizedBox(
+                                              width: 8.0,
+                                            ), // Espaço entre o ícone e o texto
+                                            Text(
+                                              totalGrade.text,
+                                              style: const TextStyle(
+                                                fontSize: 20,
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  // Para centralizar o campo, você pode usar MainAxisAlignment.center no Column
                                 ),
                               ),
                               const SizedBox(height: 10),
@@ -184,7 +201,9 @@ class _HomePageState extends State<HomePage> {
                                           matematicaController.clear();
                                           inglesController.clear();
                                           fisicaController.clear();
-                                          totalGrade.clear();
+                                          setState(() {
+                                            totalGrade.text = '0.0';
+                                          });
                                         },
                                         child: const Text(
                                           'Limpar',
@@ -218,13 +237,24 @@ class _HomePageState extends State<HomePage> {
                                         onPressed: () {
                                           setState(() {
                                             totalGrade.text = calculateGrade(
-                                              int.parse(
-                                                  portuguesController.text),
-                                              int.parse(
-                                                  matematicaController.text),
-                                              int.parse(inglesController.text),
-                                              int.parse(fisicaController.text),
-                                            ).toString();
+                                                    int.tryParse(
+                                                            portuguesController
+                                                                .text) ??
+                                                        0,
+                                                    int.tryParse(
+                                                            matematicaController
+                                                                .text) ??
+                                                        0,
+                                                    int.tryParse(
+                                                            inglesController
+                                                                .text) ??
+                                                        0,
+                                                    int.tryParse(
+                                                            fisicaController
+                                                                .text) ??
+                                                        0,
+                                                    widget.isAFA)
+                                                .toString();
                                           });
                                         },
                                         child: const Text(

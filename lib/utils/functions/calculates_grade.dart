@@ -1,10 +1,14 @@
-double calculateGrade(int matematica, portugues, ingles, fisica) {
-  const peso = 1.5625;
+double calculateGrade(matematica, portugues, ingles, fisica, isAFA) {
+  double weigth;
   double finalGrade;
 
-  finalGrade =
-      (matematica * peso + portugues * peso + ingles * peso + fisica * peso) /
-          10;
+  isAFA ? weigth = 1.5625 : weigth = 1.0416666667;
+
+  finalGrade = (matematica * weigth +
+          portugues * weigth +
+          ingles * weigth +
+          fisica * weigth) /
+      10;
 
   return finalGrade;
 }

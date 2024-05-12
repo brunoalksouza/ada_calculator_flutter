@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:afa_calculator_flutter/utils/constants.dart';
+import 'package:flutter/services.dart';
 
 class MyCustomInput extends StatelessWidget {
   final TextEditingController? controller; // Adicione este parâmetro
@@ -23,6 +24,9 @@ class MyCustomInput extends StatelessWidget {
         controller: controller, // Use o controller aqui
         keyboardType: TextInputType.number,
         enabled: enabled,
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(2),
+        ],
         decoration: InputDecoration(
           labelText: labelText,
           prefixIcon: icon,

@@ -1,14 +1,27 @@
-import 'package:afa_calculator_flutter/home.dart';
-import 'package:afa_calculator_flutter/utils/constants.dart';
+import 'package:afa_calculator_flutter/utils/widgets/custom_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:afa_calculator_flutter/home.dart';
 import 'package:afa_calculator_flutter/utils/constants.dart';
 
 void main() {
   runApp(const MainApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MainApp extends StatefulWidget {
+  const MainApp({Key? key}) : super(key: key);
+
+  @override
+  State<MainApp> createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> {
+  bool isAFA = true;
+
+  void toggleTitle(bool newValue) {
+    setState(() {
+      isAFA = newValue;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +30,28 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: mainColor,
-          title: const Center(
+          title: Center(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(60, 0, 0, 0),
               child: Text(
-                'Calculadora AFA',
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                isAFA ? 'Calculadora AFA' : 'Calculadora EEAR',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: Icon(
-                Icons.airplanemode_active,
-                color: Colors.white, // Define a cor do ícone como branco
+              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+              child: CustomSwitch(
+                onChanged: toggleTitle, // Passa a função de callback
               ),
             ),
           ],
         ),
-        body: const HomePage(),
+        body: HomePage(isAFA: isAFA),
       ),
     );
   }
