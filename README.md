@@ -62,11 +62,14 @@ And run:
 ```
 flutter run
 ```
+
 AFA calculation:
-![WhatsApp Image 2024-09-04 at 14 55 22 (2)](https://github.com/user-attachments/assets/42dd51ef-7e14-452c-a583-3972e538fe00)
+<br>
+<img src="https://github.com/user-attachments/assets/42dd51ef-7e14-452c-a583-3972e538fe00" width="350">
 
 EAAR calculation:
-![WhatsApp Image 2024-09-04 at 14 55 22 (1)](https://github.com/user-attachments/assets/45fb4c2a-62c1-49f8-a794-d28115d8bf45)
+<br>
+<img src="https://github.com/user-attachments/assets/45fb4c2a-62c1-49f8-a794-d28115d8bf45" width="350">
 
 
 
